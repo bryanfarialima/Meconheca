@@ -1,24 +1,42 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
-
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.">
-    <title>Faça sua pergunta</title>
-    <link rel="stylesheet" href="styles.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Caixa de Perguntas - Admin</title>
+    <link rel="stylesheet" href="style.css">
 </head>
-
 <body>
-    <h1>Faça sua pergunta</h1>
-    <form id="questionForm">
-        <label for="question">Sua pergunta:</label>
-        <textarea id="question" name="question" rows="4" cols="5" required></textarea>
-        <br>
-        <input type="submit" value="Enviar pergunta">
-    </form>
-    <div id="responseMessage"></div>
+
+    <div class="container">
+        <header>
+            <h1>Faça sua Pergunta</h1>
+            <p>Envie sua dúvida diretamente para a administração. Responderemos o mais breve possível!</p>
+        </header>
+
+        <form id="questionForm" action="https://formspree.io/f/YOUR_FORMSPREE_CODE" method="POST">
+            
+            <div class="form-group">
+                <label for="name">Seu Nome (Opcional)</label>
+                <input type="text" id="name" name="Nome" placeholder="Seu nome">
+            </div>
+
+            <div class="form-group">
+                <label for="email">Seu E-mail *</label>
+                <input type="email" id="email" name="Email" placeholder="seu@email.com" required>
+            </div>
+
+            <div class="form-group">
+                <label for="question">Sua Pergunta *</label>
+                <textarea id="question" name="Pergunta" rows="5" placeholder="Digite sua pergunta aqui..." required></textarea>
+            </div>
+
+            <button type="submit" id="submitButton">Enviar Pergunta</button>
+        </form>
+
+        <p id="successMessage" class="hidden">Obrigado! Sua pergunta foi enviada com sucesso e será respondida em breve no e-mail fornecido.</p>
+    </div>
 
     <script src="script.js"></script>
 </body>
-
 </html>
