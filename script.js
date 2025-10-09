@@ -1,31 +1,55 @@
-document.getElementById('questionForm').addEventListener('submit', function (event) {
-    event.preventDefault();
+document.addEventListener('DOMContentLoaded', () => {
+    const form = document.getElementById('questionForm');
+    const successMessage = document.getElementById('successMessage');
+    const submitButton = document.getElementById('submitButton');
 
-    const question = document.getElementById('question').value;
+    form.addEventListener('submit', async (e) => {
+        // Impede o envio tradicional do formulário
+        e.preventDefault();
 
-    // Simulando o envio para um servidor
-    // Em um cenário real, você precisaria configurar um servidor para receber esses dados
-    const formData = {
-        question: question
-    };
+        // Desabilita o botão para evitar cliques duplicados
+        submitButton.disabled = true;
+        submitButton.textContent = 'Enviando...';
+        
+        // Esconde a mensagem de sucesso (se visível)
+        successMessage.classList.add('hidden');
 
-    // Aqui você pode usar o método fetch para enviar os dados para um servidor
-    fetch('https://seuservidor.com/receber-pergunta', {
-        method: 'POST',
-        headers: {
-            'Content-Type': 'application/json'
-        },
-        body: JSON.stringify(formData)
-    })
-   .then(response => response.json())
-   .then(data => {
-        const responseMessage = document.getElementById('responseMessage');
-        responseMessage.textContent = 'Pergunta enviada com sucesso!';
-        document.getElementById('question').value = '';
-    })
-   .catch(error => {
-        const responseMessage = document.getElementById('responseMessage');
-        responseMessage.textContent = 'Erro ao enviar a pergunta. Tente novamente.';
-        console.error('Erro:', error);
+        // Pega os dados do formulário
+        const formData = new FormData(form);
+        
+        try {
+            // Faz a requisição para o Formspree
+            const response = await fetch(form.action, {
+                method: form.method,
+                body: formData,
+                headers: {
+                    'Accept': 'application/json'
+                }
+            });
+
+            if (response.ok) {
+                // Se o envio for um sucesso
+                form.reset(); // Limpa os campos do formulário
+                form.classList.add('hidden'); // Esconde o formulário
+                successMessage.classList.remove('hidden'); // Mostra a mensagem de sucesso
+
+            } else {
+                // Se houver erro, tenta parsear a resposta para ver a mensagem de erro
+                const data = await response.json();
+                if (Object.hasOwn(data, 'errors')) {
+                    alert('Erro no envio: ' + data.errors.map(err => err.message).join(', '));
+                } else {
+                    alert('Houve um erro no envio da sua pergunta. Tente novamente mais tarde.');
+                }
+            }
+
+        } catch (error) {
+            console.error('Erro de rede:', error);
+            alert('Erro de conexão. Verifique sua rede e tente novamente.');
+        } finally {
+            // Reabilita o botão após o término
+            submitButton.disabled = false;
+            submitButton.textContent = 'Enviar Pergunta';
+        }
     });
 });
