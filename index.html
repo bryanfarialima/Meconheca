@@ -4,28 +4,21 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.">
-    <title>Minhas Perguntas Dinâmicas</title>
-    <style>
-        .question {
-            margin-bottom: 2px;
-        }
-    </style>
+    <title>Faça sua pergunta para me conhecer melhor ;)</title>
+    <link rel="stylesheet" href="styles.css">
 </head>
 
 <body>
-    <div id="question-container"></div>
-    <button onclick="addQuestion()">Adicionar Pergunta</button>
+    <h1>Faça sua pergunta</h1>
+    <form id="questionForm">
+        <label for="question">Sua pergunta:</label>
+        <textarea id="question" name="question" rows="4" cols="5" required></textarea>
+        <br>
+        <input type="submit" value="Enviar pergunta">
+    </form>
+    <div id="responseMessage"></div>
 
-    <script>
-        const questionContainer = document.getElementById('question-container');
-
-        function addQuestion() {
-            const newQuestion = document.createElement('p');
-            newQuestion.textContent = 'Nova pergunta';
-            newQuestion.classList.add('question');
-            questionContainer.appendChild(newQuestion);
-        }
-    </script>
+    <script src="script.js"></script>
 </body>
 
 </html>
