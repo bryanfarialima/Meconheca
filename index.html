@@ -1,19 +1,31 @@
 <!DOCTYPE html>
-<html lang="pt-br">
+<html lang="pt-BR">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.">
-    <title>Receber Pergunta</title>
+    <title>Minhas Perguntas Dinâmicas</title>
+    <style>
+        .question {
+            margin-bottom: 2px;
+        }
+    </style>
 </head>
 
 <body>
-    <p>Quer me conhecer? Faça sua pergunta aqui!</p>
-    <input type="text" id="perguntaInput">
-    <button onclick="pegarPergunta()">Enviar</button>
-    <p id="resultado"></p>
+    <div id="question-container"></div>
+    <button onclick="addQuestion()">Adicionar Pergunta</button>
 
-    <script src="script.js"></script>
+    <script>
+        const questionContainer = document.getElementById('question-container');
+
+        function addQuestion() {
+            const newQuestion = document.createElement('p');
+            newQuestion.textContent = 'Nova pergunta';
+            newQuestion.classList.add('question');
+            questionContainer.appendChild(newQuestion);
+        }
+    </script>
 </body>
 
 </html>
