@@ -4,48 +4,48 @@
 /* Estilos gerais do corpo da página */
 body {
     font-family: 'Roboto', sans-serif;
-    background-color: #f4f7f6; /* Cor de fundo bem clara */
+    background-color: #F5F5DC; /* <-- MUDANÇA AQUI: Cor de fundo bege */
     display: flex;
-    justify-content: center; /* Centraliza o container horizontalmente */
-    align-items: flex-start; /* Alinha o conteúdo ao topo */
-    min-height: 100vh; /* Ocupa a altura total da viewport */
+    justify-content: center; 
+    align-items: flex-start;
+    min-height: 100vh;
     margin: 0;
     padding: 20px;
-    box-sizing: border-box; /* Garante que padding e border não aumentem o tamanho total */
+    box-sizing: border-box;
 }
 
 /* Estilo do container principal */
 .container {
-    background-color: #ffffff; /* Fundo branco para o container */
+    background-color: #ffffff;
     padding: 40px;
     border-radius: 12px;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1); /* Sombra suave */
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
     width: 100%;
-    max-width: 450px; /* Largura máxima para manter o formulário legível */
-    margin-top: 50px; /* Espaço do topo */
+    max-width: 450px;
+    margin-top: 50px;
 }
 
-/* Estilos do cabeçalho */
+/* Estilos do cabeçalho: Centraliza os textos H1 e P */
 header {
     text-align: center;
     margin-bottom: 30px;
-    border-bottom: 2px solid #007bff; /* Linha azul vibrante */
+    border-bottom: 2px solid #007bff;
     padding-bottom: 15px;
 }
 
 header h1 {
-    color: #007bff; /* Cor principal (Azul) */
+    color: #007bff;
     font-weight: 700;
     margin-bottom: 5px;
 }
 
 header p {
-    color: #6c757d; /* Cor secundária (Cinza escuro) */
+    color: #6c757d;
     font-size: 1.1em;
 }
 
 /* --------------------------------- */
-/* ESTILOS DA FOTO DE PERFIL */
+/* ESTILOS DA FOTO DE PERFIL: Centraliza a foto e o nome */
 /* --------------------------------- */
 .perfil {
     text-align: center;
@@ -53,11 +53,11 @@ header p {
 }
 
 .perfil img {
-    width: 100px; /* Tamanho da foto */
+    width: 100px;
     height: 100px;
-    border-radius: 50%; /* Transforma a foto em um círculo */
-    object-fit: cover; /* Garante que a imagem preencha o espaço sem distorção */
-    border: 3px solid #007bff; /* Borda azul em volta da foto */
+    border-radius: 50%;
+    object-fit: cover;
+    border: 3px solid #007bff;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
 }
 
@@ -71,10 +71,11 @@ header p {
 
 /* Estilos do formulário */
 form label {
-    display: block; /* Faz o label ocupar a largura total */
+    display: block;
     margin-bottom: 15px;
-    color: #495057; /* Cor do texto do label */
+    color: #495057;
     font-weight: bold;
+    text-align: left;
 }
 
 form input[type="email"],
@@ -82,27 +83,27 @@ form textarea {
     width: 100%;
     padding: 10px;
     margin-top: 5px;
-    border: 1px solid #ced4da; /* Borda levemente cinza */
+    border: 1px solid #ced4da;
     border-radius: 5px;
-    box-sizing: border-box; /* Inclui padding e border na largura total */
+    box-sizing: border-box;
     font-size: 1em;
     transition: border-color 0.3s;
 }
 
 form input[type="email"]:focus,
 form textarea:focus {
-    border-color: #007bff; /* Borda azul ao focar */
-    outline: none; /* Remove o contorno padrão do navegador */
+    border-color: #007bff;
+    outline: none;
 }
 
 form textarea {
-    resize: vertical; /* Permite redimensionar apenas na vertical */
-    min-height: 100px; /* Altura mínima para a caixa de texto */
+    resize: vertical;
+    min-height: 100px;
 }
 
 /* Estilos do botão */
 form button[type="submit"] {
-    background-color: #28a745; /* Cor Verde para o botão de Envio */
+    background-color: #28a745;
     color: white;
     padding: 12px 20px;
     border: none;
@@ -116,9 +117,9 @@ form button[type="submit"] {
 }
 
 form button[type="submit"]:hover {
-    background-color: #218838; /* Verde um pouco mais escuro no hover */
+    background-color: #218838;
 }
 
 form button[type="submit"]:active {
-    transform: translateY(1px); /* Pequeno efeito de clique */
+    transform: translateY(1px);
 }
